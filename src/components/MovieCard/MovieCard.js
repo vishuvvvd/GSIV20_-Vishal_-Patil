@@ -9,7 +9,7 @@ import Rating from "@material-ui/lab/Rating";
 import { Grid } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
-    maxWidth: 300,
+    // maxWidth: 300,
     margin: "10px 0",
     minHeight:332
   },

@@ -70,18 +70,19 @@ export default props => {
     <div className={classes.grow}>
       <AppBar position="static" color="inherit">
         <Toolbar>
-          {props.deatils && (
-            <Typography variant="h6" noWrap>
-              Movie Detials
-            </Typography>
-          )}
-          {props.searchbar && (
+          
+          {props.searchbar === true ? (
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
               <AutoComplete history={props.routes}/>
             </div>
+          )
+          :(
+            <Typography variant="h6" noWrap>
+              Movie Detials
+            </Typography>
           )}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>

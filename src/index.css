@@ -17,3 +17,6 @@ code {
 .horizontalscroll ::-webkit-scrollbar {
   display: none;
 }
+.teftFieldIP input{
+  padding-left: 40px !important;
+}

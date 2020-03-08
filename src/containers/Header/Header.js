@@ -14,7 +14,7 @@ export default props => {
     ) {
       setSearchbar(true);
       setDeatils(false);
-    } else if (current_path === routePaths.details) {
+    } else {
       setDeatils(true);
       setSearchbar(false);
     }

@@ -23,7 +23,7 @@ export default props => {
         <Grid container>
           { isArray(movies) && movies.map((movie, key) =>
           
-          <Grid item xs={4} key={key}>
+          <Grid item xs={4} key={key} className={classes.cardContainer}>
           <Card
               onClick={() => handleCardDetails(movie.id)}
               imageUrl={`${imageBaseURL}${movie.poster_path}`}

@@ -14,8 +14,7 @@ export default makeStyles({
     overflowX: "auto"
   },
   cardContainer: {
-    margin: 20,
-    minWidth: 300
+   padding: '0 10px'
   },
   homeFirstRow: {
     position: "relative",
