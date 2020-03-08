@@ -38,7 +38,6 @@ export default props => {
             placeholder="Free solo dialog"
             variant="outlined"
             onChange={handleSearch}
-            autoComplete="off"
           />
         )}
       />
