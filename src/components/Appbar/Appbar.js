@@ -4,13 +4,11 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
-  InputBase
+  Typography
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Home from "@material-ui/icons/Home";
 import { routePaths } from "../../constants"
-import { searchMovie } from "../../api"
 import AutoComplete from "../AutoComplete"
 
 const useStyles = makeStyles(theme => ({
@@ -68,8 +66,6 @@ export default props => {
   const handleHomeRoute = () => {
     props.routes.push(routePaths.home)
   }
-
-  searchMovie("lol").then(res => console.log(res))
   return (
     <div className={classes.grow}>
       <AppBar position="static" color="inherit">
@@ -84,15 +80,7 @@ export default props => {
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
-              {/* <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput
-                }}
-                inputProps={{ "aria-label": "search" }}
-              /> */}
-              <AutoComplete />
+              <AutoComplete history={props.routes}/>
             </div>
           )}
           <div className={classes.grow} />

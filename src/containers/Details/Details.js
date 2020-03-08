@@ -26,7 +26,6 @@ export default props => {
     }
   };
 
-  console.log(movieDetails)
   return (
     movieDetails !== undefined && (
       <Grid container className={classes.detailsContainer}>
@@ -60,10 +59,10 @@ export default props => {
               </Typography>
               <Typography component="span">| {movieDetails.tagline}</Typography>
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <Typography component="span">Cast : </Typography>
               <Typography component="span">a</Typography>
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <Typography>{movieDetails.overview}</Typography>
             </Grid>
