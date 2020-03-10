@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 
 import useStyles from "./homeStyle";
 import LatestMovies from "../../components/LatestMovies"
-import Infy from "../infiniteScrol"
+import Infy from "../infiniteScroll"
 
 export default props => {
   const classes = useStyles();

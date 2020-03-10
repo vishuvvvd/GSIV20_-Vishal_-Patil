@@ -1,29 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { useSelector, useDispatch } from "react-redux"
 
-import { getPopular } from "../api";
 import AllMovies from "../components/AllMovies";
+import { GET_POPULAR_MOVIES } from "../stores/moviesReducer";
 
 function NewsInfiniteLoader(props) {
   const [pageIndex, setPageIndex] = useState(1);
   const hasMoreNews = pageIndex <= 500;
-  const [moviesData, setMoviesData] = useState(1);
-
-  useEffect(() => {
-    getPopular("1").then(res => {
-      setMoviesData(res.results);
-      setPageIndex(pageIndex);
-      return res.results;
-    });
-  }, []);
+  const dispatch = useDispatch()
+  const moviesData = useSelector( state => state.moviesReducer.popularMovies)
 
   const loadMoreNews = pageIndex => {
-    getPopular(pageIndex).then(res => {
-      setMoviesData([...moviesData, ...res.results]);
-    });
+    setPageIndex(pageIndex + 1)
+    dispatch({type: GET_POPULAR_MOVIES, payload: pageIndex})
   };
-
   return (
     <InfiniteScroll
       pageStart={pageIndex}

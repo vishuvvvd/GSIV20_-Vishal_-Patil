@@ -6,12 +6,17 @@ import Card from "../MovieCard";
 import useStyles from "./AllmoviesStyle";
 import { routePaths } from "../../constants";
 import { imageBaseURL } from "../../constants"
+import {  useDispatch } from "react-redux";
+import { GET_MOVIE_DETAILS } from "../../stores/moviesReducer";
 
 export default props => {
   const classes = useStyles();
   const movies = props.movies
+  const dispatch = useDispatch()
 
   const handleCardDetails = (id) => {
+  
+    dispatch({type: GET_MOVIE_DETAILS, payload: id})
     props.history.push(routePaths.details+"/"+id);
   };
   return (

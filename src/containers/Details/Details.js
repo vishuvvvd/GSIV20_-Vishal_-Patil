@@ -1,22 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Grid, Typography } from "@material-ui/core";
+import { useSelector } from "react-redux";
+
+import Rating from "@material-ui/lab/Rating";
 import useStyles from "./DetailsStyle";
-import { getMovieDetails } from "../../api";
 import { imageBaseURL } from "../../constants";
 
 export default props => {
   const classes = useStyles();
-  const details = props.history;
-  const [movieDetails, setMovieDetails] = useState({});
-
-  var detailsnumber = details.location.pathname.substring(
-    details.location.pathname.lastIndexOf("/") + 1,
-    details.location.pathname.length
-  );
-  useEffect(() => {
-    getMovieDetails(detailsnumber).then(res => setMovieDetails(res.data));
-  }, []);
-
+  const movieDetails = useSelector( state => state.moviesReducer.movieDetail)
+ 
+  
   const getReleaseyear = date => {
     if (date !== undefined) {
       let dt = new Date(date);
@@ -27,7 +21,7 @@ export default props => {
   };
 
   return (
-    movieDetails !== undefined && (
+    movieDetails !== null && (
       <Grid container className={classes.detailsContainer}>
         <Grid item xs={2}>
           <img
@@ -44,7 +38,12 @@ export default props => {
                   <Typography variant="h5"> {movieDetails.title}</Typography>
                 </Grid>
                 <Grid item>
-                  <Typography> (movieDetails.vote_average) </Typography>
+                <Rating
+                size={"small"}
+                name="read-only"
+                value={movieDetails.vote_average/2}
+                readOnly
+              />
                 </Grid>
               </Grid>
             </Grid>
@@ -55,9 +54,9 @@ export default props => {
               </Typography>
               <Typography component="span">
                 {" "}
-                | {movieDetails.runtime}
+                {movieDetails.runtime && "| " } {movieDetails.runtime}
               </Typography>
-              <Typography component="span">| {movieDetails.tagline}</Typography>
+              <Typography component="span"> {movieDetails.tagline && "| "} {movieDetails.tagline}</Typography>
             </Grid>
             {/* <Grid item xs={12}>
               <Typography component="span">Cast : </Typography>

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { Grid, Typography } from "@material-ui/core";
@@ -7,13 +7,15 @@ import { isArray } from "lodash";
 import useStyles from "./LatestMoviesStyle";
 import { routePaths } from "../../constants";
 import Card from "../../components/MovieCard";
-import { getUpcoming } from "../../api";
 import { imageBaseURL } from "../../constants";
+import { useSelector, useDispatch } from "react-redux";
+import { GET_MOVIE_DETAILS } from "../../stores/moviesReducer";
 
 export default props => {
   const classes = useStyles();
   const scroll = useRef();
-  const [upcoming, setUpcoming] = useState();
+  const upcoming = useSelector( state => state.moviesReducer.upcomingMovies)
+  const dispatch = useDispatch()
 
   const scrollLeft = () => {
     document.getElementById("slider-container").scrollLeft -= 200;
@@ -23,12 +25,11 @@ export default props => {
   };
 
   const handleCardDetails = (id) => {
+    dispatch({type: GET_MOVIE_DETAILS, payload: id})
     props.history.push(routePaths.details+"/"+id);
   };
 
-  useEffect(() => {
-    getUpcoming().then(res => setUpcoming(res.results));
-  }, []);
+
 
   return (
     <>
