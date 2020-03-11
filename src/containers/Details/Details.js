@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import { useSelector } from "react-redux";
-
 import Rating from "@material-ui/lab/Rating";
 import useStyles from "./DetailsStyle";
 import { imageBaseURL } from "../../constants";
@@ -9,7 +8,6 @@ import { imageBaseURL } from "../../constants";
 export default props => {
   const classes = useStyles();
   const movieDetails = useSelector( state => state.moviesReducer.movieDetail)
- 
   
   const getReleaseyear = date => {
     if (date !== undefined) {
@@ -23,14 +21,14 @@ export default props => {
   return (
     movieDetails !== null && (
       <Grid container className={classes.detailsContainer}>
-        <Grid item xs={2}>
+        <Grid item xs={12} sm={4} md={2}>
           <img
             src={`${imageBaseURL}${movieDetails.poster_path}`}
             alt=""
             className={classes.detailsPoster}
           />
         </Grid>
-        <Grid item xs={10} className={classes.movieInfo}>
+        <Grid item xs={12} sm={8} md={10} className={classes.movieInfo}>
           <Grid container direction={"column"} spacing={1}>
             <Grid item xs={12}>
               <Grid container spacing={2} alignItems={"flex-end"}>
@@ -58,10 +56,6 @@ export default props => {
               </Typography>
               <Typography component="span"> {movieDetails.tagline && "| "} {movieDetails.tagline}</Typography>
             </Grid>
-            {/* <Grid item xs={12}>
-              <Typography component="span">Cast : </Typography>
-              <Typography component="span">a</Typography>
-            </Grid> */}
             <Grid item xs={12}>
               <Typography>{movieDetails.overview}</Typography>
             </Grid>

@@ -30,7 +30,7 @@ export default props => {
       <Autocomplete
         size="small"
         className="teftFieldIP"
-        id="free-solo-dialog-demo"
+        id="Search"
         options={isArray(searchData) && searchData}
         onChange={(e,v) => handleChangeInIP(v)}
         getOptionLabel={option => option.title}
@@ -39,7 +39,7 @@ export default props => {
         renderInput={params => (
           <TextField
             {...params}
-            placeholder="Free solo dialog"
+            placeholder="Search "
             variant="outlined"
             onChange={handleSearch}
           />

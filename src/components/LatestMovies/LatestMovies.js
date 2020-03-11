@@ -8,15 +8,14 @@ import useStyles from "./LatestMoviesStyle";
 import { routePaths } from "../../constants";
 import Card from "../../components/MovieCard";
 import { imageBaseURL } from "../../constants";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { GET_MOVIE_DETAILS } from "../../stores/moviesReducer";
 
 export default props => {
+  const upcoming = props.upcoming
   const classes = useStyles();
   const scroll = useRef();
-  const upcoming = useSelector( state => state.moviesReducer.upcomingMovies)
   const dispatch = useDispatch()
-
   const scrollLeft = () => {
     document.getElementById("slider-container").scrollLeft -= 200;
   };

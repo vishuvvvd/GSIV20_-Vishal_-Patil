@@ -27,5 +27,8 @@ export default makeStyles({
   },
   allMovies:{
     padding:'20px 0'
+  },
+  title:{
+    margin:"0px 10px"
   }
 });

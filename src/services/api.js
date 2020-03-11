@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {apiKey} from './constants'
-import {baseUrl} from './constants'
+import {apiKey} from '../constants'
+import {baseUrl} from '../constants'
 
 export function getUpcoming(number) {
   return axios.get(`${baseUrl}/movie/upcoming?api_key=${apiKey}&language=en-US&page=${number}`)

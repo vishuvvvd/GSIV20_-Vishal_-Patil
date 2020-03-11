@@ -1,7 +1,7 @@
 
 import { put, call } from 'redux-saga/effects'
 
-import { getUpcoming, getPopular, getMovieDetails, searchMovie } from "../api"
+import { getUpcoming, getPopular, getMovieDetails, searchMovie } from "../services/api"
 import { SEARCH_MOVIE,  addMovieDetails, addUpcomingMovies, addPopularMovies } from "../stores/moviesReducer"
 
 export  function* getUpcomingMoviesSaga(action){
