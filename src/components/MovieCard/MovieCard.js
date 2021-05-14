@@ -21,9 +21,9 @@ export default props => {
           title={props.imageAlt}
         />
         <CardContent>
-          <Grid container justify={"space-between"} alignItems={"center"}>
-            <Grid item>
-              <Typography variant="h6">{props.movieTitle}</Typography>
+          <Grid container>
+            <Grid item xs>
+              <Typography variant="h6" className={classes.title}>{props.movieTitle}</Typography>
             </Grid>
             <Grid item>
               <Rating

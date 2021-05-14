@@ -9,6 +9,7 @@ export default makeStyles(theme =>({
           }
     },
     detailsContainer: {
+        marginTop:50,
         padding: "10px 0"
     },
     movieInfo: {

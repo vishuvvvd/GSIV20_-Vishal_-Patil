@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, Box } from "@material-ui/core";
 import { isArray } from "lodash";
 
 import useStyles from "./LatestMoviesStyle";
@@ -32,9 +32,11 @@ export default props => {
 
   return (
     <>
-      <Typography variant="h5" component="h6">
-        Upcoming Movies
-      </Typography>
+      <Box pl={1}>
+        <Typography variant="h5" component="h6">
+          Upcoming Movies
+        </Typography>
+      </Box>
       <div className={[classes.homeFirstRow, "horizontalscroll"].join(" ")}>
         <div
           id="slider-container"

@@ -9,6 +9,12 @@ export default makeStyles({
     media: {
       height: 200
     },
+    title:{
+        width: 140,
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+    },
     maxLines:{
       display: "block",
       textOverflow: "ellipsis",
